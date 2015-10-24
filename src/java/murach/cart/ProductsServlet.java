@@ -15,8 +15,8 @@ import murach.business.Product;
 import murach.data.ProductIO;
 
 public class ProductsServlet extends HttpServlet {
-  
-   /**
+
+  /**
    * OpenShift with Tomcat does not allow reading a file from under Webapps
    * folder but rather only under the OPENSHIFT_DATA_DIR location specified by
    * this environment variable. Since this location is dynamic for the
@@ -50,24 +50,24 @@ public class ProductsServlet extends HttpServlet {
       }
     }
   }
-  
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-        initIfNeeded();
-        String path = this.getActualFile();
-        ArrayList<Product> products = ProductIO.getProducts(path);
-        session.setAttribute("products", products);
+    HttpSession session = request.getSession();
+    initIfNeeded();
+    String path = this.getActualFile();
+    ArrayList<Product> products = ProductIO.getProducts(path);
+    session.setAttribute("products", products);
 
-        String url = "/index.jsp";
-        getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
-    }
-      private boolean isFile(String path) {
+    String url = "/index.jsp";
+    getServletContext()
+      .getRequestDispatcher(url)
+      .forward(request, response);
+  }
+
+  private boolean isFile(String path) {
     File aFile = new File(path);
     return aFile.exists();
   }
@@ -91,6 +91,5 @@ public class ProductsServlet extends HttpServlet {
     }
     return path;
   }
-    
-    
+
 }
