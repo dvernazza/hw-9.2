@@ -39,7 +39,7 @@ public class ProductsServlet extends HttpServlet {
           "Paddlefoot - The first CD",
           12.95), path);
         ProductIO.addRecord(new Product("pf02",
-          "pf02|Paddlefoot - The second CD",
+          "Paddlefoot - The second CD",
           14.95), path);
         ProductIO.addRecord(new Product("jr01",
           "Joe Rut - Genuine Wood Grained Finish",
