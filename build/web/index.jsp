@@ -19,8 +19,8 @@
     <c:forEach var="product" items="${products}">
     <tr>
         
-        <td><c:out value='${product.descriptions}'/></td>
-        <td class="right">${product.priceCurrencyFormat}</td>
+        <td><c:out value='${product.description}'/></td>
+        <td class="right">${product.price}</td>
         <td><form action="cart" method="post">
                 <input type="hidden" name="productCode" value='${product.code}'/>>
                 <input type="submit" value="Add To Cart">
